@@ -1,11 +1,19 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DemoMVC.Models;
+
 namespace DemoMVC.Controllers
+
 {
-public class FirstController : Controller
+public class FirstController(string? id) : Controller
 {
-    public IActionResult Create()
+        private readonly string? id = id;
+
+        public string? Name { get; private set; }
+        public string? Class { get; private set; }
+        public string? MSV { get; private set; }
+
+        public IActionResult Create()
     { 
        return View();
     }
